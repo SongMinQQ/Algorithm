@@ -7,8 +7,10 @@ char a;
 
 int main()
 {
+  ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
   cin >> s >> n;
-  for (int j = 0; j < (int)s.size(); j++)
+  int stringSize = s.length();
+  for (int j = 0; j < stringSize; j++)
   {
     int c = s[j] - 'a';
     for (int i = 0; i < 26; i++)
