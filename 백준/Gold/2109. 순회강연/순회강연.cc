@@ -28,13 +28,10 @@ int main(){
   // }
   for(int i = 0; i < n; i++){
     if(checkSchedule(lecture[i].second)){
-      pq.push(lecture[i].first);
+      result += lecture[i].first;
     }
   }
-  while(pq.size()){
-    result+=pq.top();
-    pq.pop();
-  }
+
   cout << result << '\n';
   return 0;
 }
