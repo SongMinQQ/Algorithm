@@ -4,7 +4,7 @@ typedef long long ll;
 int g;
 vector<int> result, arr;
 void make(){
-  for(int i = 1; i <= g+20; i++){
+  for(int i = 1; i <= g+10; i++){
     arr.push_back(i);
   }
 }
