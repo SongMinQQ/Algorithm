@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int n, visited1[1010][1010], visited2[1010][1010], y, x, w, h;
+int n, visited2[1010][1010], y, x, w, h;
 char m[1010][1010];
 const int dy[] = {-1, 0, 1, 0};
 const int dx[] = {0, 1, 0, -1};
@@ -50,7 +50,6 @@ int main(){
       for(int j = 0; j < w; j++){
         cin >> m[i][j];
         if(m[i][j] == '*') {
-          visited1[i][j] = 1;
           fire.push({i,j});
         }
         if(m[i][j] == '@') {
