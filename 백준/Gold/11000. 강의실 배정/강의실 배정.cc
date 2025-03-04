@@ -21,11 +21,6 @@ int main(){
       pq.push({i.second, i.first});
       pq.pop();
     }
-    else{
-      pq.pop();
-      pq.push({i.second, i.first});
-      result--;
-    }
   }
   cout << result << '\n';
   return 0;
