@@ -19,9 +19,7 @@ vector<string> solution(vector<string> record) {
     for(string i : record){
         vector<string> sliceString = split(i, " ");
         if(sliceString[0] == "Enter"){
-            if (m.find(sliceString[1]) != m.end()) {
-                m.insert({sliceString[1], sliceString[2]});
-            }
+            m.insert({sliceString[1], sliceString[2]});
             if(m[sliceString[1]] != sliceString[2])m[sliceString[1]] = sliceString[2];
         }
         else if(sliceString[0] == "Change"){
