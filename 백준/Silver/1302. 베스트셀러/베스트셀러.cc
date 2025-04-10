@@ -14,10 +14,7 @@ int main(){
     }
     else m.insert({a, 1});
   }
-  
-  vector<pair<string, int>> v(m.begin(), m.end());
-  sort(v.begin(),v.end());
-  for(auto i : v){
+  for(auto i : m){
     if(i.second > diff){
       result = i.first;
       diff = i.second;
