@@ -7,7 +7,7 @@ int main(){
   while(cin.eof() == false){
     getline(cin, s);
     if(s.empty())break;
-    m.find(s) != m.end() ? m[s] += 1.0 : m[s] = 1.0;
+    m[s]++;
     cnt++;
   }
   for(auto i : m){
