@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(int argc, char** argv)
+{
+	int test_case;
+	int T, n, m, num, ret;
+    
+	cin>>T;
+	for(test_case = 1; test_case <= T; ++test_case)
+	{
+		cin >> n >> m;
+        vector<int> a(n);
+    	vector<int> b(m);
+        ret = 0;
+        for(int i = 0; i < n; i++){
+        	cin >> a[i];
+        }
+		for(int i = 0; i < m; i++){
+        	cin >> b[i];
+        }
+        //긴 배열이 a인지 b인지 판별해야함
+        if(a.size() > b.size()){
+        	for(int i = 0; i <= a.size() - b.size(); i++){
+                num = 0;
+                int idx = 0;
+            	for(int j = i; j < i + b.size(); j++){
+                	num += a[j] * b[idx];
+                    idx++;
+                } 
+                ret = max(ret, num);
+            }
+        }
+        else{
+        	for(int i = 0; i <= b.size() - a.size(); i++){
+                num = 0;
+                int idx = 0;
+            	for(int j = i; j < i + a.size(); j++){
+                	num += a[idx] * b[j];
+                    idx++;
+                } 
+                //cout << num << '\n';
+                ret = max(ret, num);
+            }
+        }
+        cout << '#' << test_case << ' ' << ret << '\n';
+	}
+	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+}
