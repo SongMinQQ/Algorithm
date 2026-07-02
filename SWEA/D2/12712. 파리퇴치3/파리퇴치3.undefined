@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+int n, m, a[17][17], ret;
+const int dy[] = {-1, 0, 1, 0};
+const int dx[] = {0, 1, 0, -1};
+const int cdy[] = {-1, 1, 1, -1};
+const int cdx[] = {-1, 1, -1, 1};
+
+int pluss(){
+	int result = 0;
+    for(int i = 0; i < n; i++){
+    	for(int j = 0; j < n; j++){
+        	int sum = a[i][j];
+            for(int k = 1; k < m; k++){
+            	for(int l = 0; l < 4; l++){
+                	int ny = i + (dy[l] * k);
+                    int nx = j + (dx[l] * k);
+                    if(ny < 0 || nx < 0 || ny >= n || nx >= n) continue;
+                    sum += a[ny][nx];
+                }
+                result = max(result, sum);
+            }
+        }
+    }
+    return result;
+}
+int cross(){
+	int result = 0;
+    for(int i = 0; i < n; i++){
+    	for(int j = 0; j < n; j++){
+        	int sum = a[i][j];
+            for(int k = 1; k < m; k++){
+            	for(int l = 0; l < 4; l++){
+                	int ny = i + (cdy[l] * k);
+                    int nx = j + (cdx[l] * k);
+                    if(ny < 0 || nx < 0 || ny >= n || nx >= n) continue;
+                    sum += a[ny][nx];
+                }
+                 result = max(result, sum);
+            }
+
+           
+        }
+    }
+    return result;
+}
+int main(int argc, char** argv)
+{
+	int test_case;
+	int T;
+	cin>>T;
+	/*
+	   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+	*/
+	for(test_case = 1; test_case <= T; ++test_case)
+	{
+		fill(&a[0][0], &a[n][n], 0);
+        cin >> n >> m;
+        ret = 0;
+        for(int i = 0; i < n; i++){
+        	for(int j = 0; j < n; j++){
+            	cin >> a[i][j];
+            }
+        }
+		ret = pluss();
+        int ret2 = cross();
+        ret= max(ret, ret2);
+        cout << '#' << test_case << ' ' << ret << '\n';
+	}
+	return 0;//정상종료시 반드시 0을 리턴해야합니다.
+}
